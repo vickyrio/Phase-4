@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button4 {
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+     }
+
+.button4:hover {background-color: #e7e7e7;}
+    </style>
+</head>
+<body>
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-sm-8 offset-2">
+      <div *ngIf="currentQuiz<quizzes.length">
+        <h1 align="center">ONLINE  QUIZ  MCQ</h1>
+        <h3>{{ quizzes[currentQuiz].question }}</h3>
+        <br>
+        <ul class="list-group" *ngFor="let quiz of quizzes[currentQuiz].answer">
+            <label>
+          <li class="list-group-item">
+            <input type="radio" name="options" (change)="onAnswer(quiz.correct)" [disabled]="answerSelected">
+            {{quiz.option}}
+          </li>
+        </label>
+        </ul>
+      </div>
+      <div *ngIf="currentQuiz >= quizzes.length">
+        <br/><br/><p align="center"><button class = "button button4" (click)="showResult()">VIEW RESULTS</button></p>
+   <div *ngIf="result">
+    <br/> 
+    <p align="center"><b>Score : {{correctAnswers}} out of {{quizzes.length}}</b></p><br/>
+  
+    <br/>
+  
+     <p align="center">no_of_correct_answers : {{correctAnswers}}</p>
+     <p align="center">no_of_wrong_answers   : {{incorrectAnswers}}</p>
+   </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+</body>
+</html>
