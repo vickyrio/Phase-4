@@ -4,6 +4,8 @@ PROJECT NAME : QUIZ APP
 
 DEVElOPED BY : GANAPATHI N
 
+unzip the  application
+
 open the application location in cmd 
 
 cmd :
